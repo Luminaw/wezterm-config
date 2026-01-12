@@ -2,8 +2,8 @@ local wezterm = require('wezterm')
 local platform = require('utils.platform')
 local backdrops = require('utils.backdrops')
 local act = wezterm.action
-local resurrect = wezterm.plugin.require 'https://github.com/MLFlexer/resurrect.wezterm'
- 
+local resurrect = wezterm.plugin.require('https://github.com/MLFlexer/resurrect.wezterm')
+
 local mod = {}
 
 if platform.is_mac then
@@ -178,7 +178,7 @@ local keys = {
 
    -- panes: zoom+close pane
    { key = 'Enter', mods = mod.SUPER,     action = act.TogglePaneZoomState },
-   { key = 'w',     mods = mod.SUPER,     action = act.CloseCurrentPane({ confirm = false }) },
+   { key = 'q',     mods = mod.SUPER,     action = act.CloseCurrentPane({ confirm = false }) },
 
    -- panes: navigation
    { key = 'k',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Up') },
@@ -192,8 +192,8 @@ local keys = {
    },
 
    -- panes: scroll pane
-   { key = 'u',        mods = mod.SUPER, action = act.ScrollByLine(-5) },
-   { key = 'd',        mods = mod.SUPER, action = act.ScrollByLine(5) },
+   { key = 'U',        mods = mod.SUPER, action = act.ScrollByLine(-5) },
+   { key = 'D',        mods = mod.SUPER, action = act.ScrollByLine(5) },
    { key = 'PageUp',   mods = 'NONE',    action = act.ScrollByPage(-0.75) },
    { key = 'PageDown', mods = 'NONE',    action = act.ScrollByPage(0.75) },
 
@@ -221,14 +221,14 @@ local keys = {
    -- Resurrect plugin key bindings
    {
       key = 'w',
-      mods = mod.SUPER,
+      mods = mod.SUPER_REV,
       action = wezterm.action_callback(function(win, pane)
          resurrect.state_manager.save_state(resurrect.workspace_state.get_workspace_state())
       end),
    },
    {
       key = 'W',
-      mods = mod.SUPER,
+      mods = mod.SUPER_REV,
       action = resurrect.window_state.save_window_action(),
    },
    {
