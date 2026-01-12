@@ -2,7 +2,7 @@ local wezterm = require('wezterm')
 local platform = require('utils.platform')
 local backdrops = require('utils.backdrops')
 local act = wezterm.action
-local resurrect = wezterm.plugin.require('https://github.com/MLFlexer/resurrect.wezterm')
+local resurrect = wezterm.plugin.require('file:///' .. wezterm.config_dir:gsub('\\', '/') .. '/plugins/resurrect.wezterm')
 
 local mod = {}
 

@@ -1,19 +1,19 @@
 local wezterm = require('wezterm')
 
-local resurrect = wezterm.plugin.require('https://github.com/MLFlexer/resurrect.wezterm')
+local resurrect = wezterm.plugin.require('file:///' .. wezterm.config_dir:gsub('\\', '/'):gsub('\\', '/') .. '/plugins/resurrect.wezterm')
 
--- resurrect.state_manager.change_state_save_dir(wezterm.home_dir .. '/.wezterm-resurrect-states')
+resurrect.state_manager.change_state_save_dir(wezterm.home_dir .. '/.wezterm-resurrect-states')
 
--- local pub_file = io.open(wezterm.home_dir .. '/.keys/wez-key.age.pub', 'r')
--- local public_key = pub_file:read('*a'):gsub('[ \t\r\n]+', '')
--- pub_file:close()
+local pub_file = io.open(wezterm.home_dir .. '/.keys/wez-key.age.pub', 'r')
+local public_key = pub_file:read('*a'):gsub('[ \t\r\n]+', '')
+pub_file:close()
 
--- resurrect.state_manager.set_encryption({
---     enable = true,
---     method = 'rage',
---     private_key = wezterm.home_dir .. '/.keys/wez-key.age',
---     public_key = public_key,
--- })
+resurrect.state_manager.set_encryption({
+    enable = true,
+    method = 'rage',
+    private_key = wezterm.home_dir .. '/.keys/wez-key.age',
+    public_key = public_key,
+})
 resurrect.state_manager.set_max_nlines(10000)
 
 resurrect.state_manager.periodic_save({

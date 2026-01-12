@@ -1,0 +1,4 @@
+[submodule "plugins/resurrect.wezterm"]
+	path = plugins/resurrect.wezterm
+	url = https://github.com/vike2000/resurrect.wezterm.git
+	branch = vike2000/fix-issue-125
