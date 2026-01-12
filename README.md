@@ -54,7 +54,15 @@
       - Mac: `Metal`
 
       </details>
-
+ 
+- [<b>Resurrect</b>](https://github.com/MLFlexer/resurrect.wezterm)
+ 
+  - Save and restore workspaces/windows/tabs/panes layouts and text output
+  - Encrypted with `rage` (see [.keys/wez-key.age](.keys/wez-key.age), [config/resurrect.lua](config/resurrect.lua))
+  - Auto-save every 15 minutes, auto-restore on `gui-startup`
+ 
+  > See: [key bindings](#resurrect) for usage
+ 
 ---
 
 ### Getting Started
@@ -208,8 +216,9 @@
 
   - [./config/domains.lua](./config/domains.lua) for custom SSH/WSL domains
   - [./config/launch.lua](./config/launch.lua) for preferred shells and its paths
-
----
+  - [./config/resurrect.lua](./config/resurrect.lua) for resurrect configuration (save dir, encryption, etc.)
+   
+  ---
 
 ### All Key Bindings
 
@@ -270,8 +279,7 @@ Most of the key bindings revolve around a <kbd>SUPER</kbd> and <kbd>SUPER_REV</k
 | --------------------------------- | ------------------------------------- |
 | <kbd>SUPER</kbd>+<kbd>t</kbd>     | `SpawnTab` <sub>(DefaultDomain)</sub> |
 | <kbd>SUPER_REV</kbd>+<kbd>t</kbd> | `SpawnTab` <sub>(WSL:Ubuntu)</sub>    |
-| <kbd>SUPER_REV</kbd>+<kbd>w</kbd> | `CloseCurrentTab`                     |
-
+ 
 ##### Tabs: Navigation
 
 | Keys                              | Action         |
@@ -384,7 +392,18 @@ Most of the key bindings revolve around a <kbd>SUPER</kbd> and <kbd>SUPER_REV</k
 | <kbd>l</kbd>   | `AdjustPaneSize` <sub>(Direction: Right)</sub> |
 | <kbd>q</kbd>   | `PopKeyTable` <sub>(exit)</sub>                |
 | <kbd>Esc</kbd> | `PopKeyTable` <sub>(exit)</sub>                |
-
+ 
+#### Resurrect
+ 
+| Keys                       | Action                       |
+| -------------------------- | ---------------------------- |
+| <kbd>SUPER_REV</kbd>+<kbd>w</kbd> | Save Workspace               |
+| <kbd>SUPER_REV</kbd>+<kbd>W</kbd> | Save Window                  |
+| <kbd>SUPER</kbd>+<kbd>T</kbd>    | Save Tab                     |
+| <kbd>SUPER</kbd>+<kbd>s</kbd>    | Save Workspace & Window  |
+| <kbd>SUPER</kbd>+<kbd>r</kbd>    | Fuzzy Restore                |
+| <kbd>SUPER</kbd>+<kbd>d</kbd>    | Fuzzy Delete                 |
+ 
 ---
 
 ### References/Inspirations
